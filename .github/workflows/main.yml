@@ -9,8 +9,8 @@ on:
         default: 'latest'
 
 jobs:
-  build-windows:
-    runs-on: windows-latest
+  build-mac:
+    runs-on: macos-latest # Ejecuta en el entorno más reciente de macOS
 
     steps:
       - name: Checkout repository
@@ -24,11 +24,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Electron app
+      - name: Build Electron app for macOS
         run: npm run make # Cambia 'make' si usas un comando diferente para compilar
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: Electron-Windows-App
-          path: out/make/squirrel.windows/x64/*.exe # Cambia esta ruta al output de tu app
+          name: Electron-macOS-App
+          path: out/make/*.dmg # Ajusta la ruta al formato de salida de tu app
