@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest # Cambia a 'windows-latest' o 'ubuntu-latest' según la plataforma
+    runs-on: windows-latest # Cambia a 'windows-latest' o 'ubuntu-latest' según la plataforma
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
