@@ -10,28 +10,31 @@ on:
 
 jobs:
   build-mac:
-    runs-on: macos-latest # Ejecuta en el entorno más reciente de macOS
+    runs-on: macos-latest
 
     env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true # Agrega la variable de entorno
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3 # Asegúrate de usar la última versión estable
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20 # Usa la versión de Node.js 20
+          node-version: 20
 
       - name: Install dependencies
         run: npm install
 
       - name: Build Electron app for macOS
-        run: npm run make # Cambia 'make' si usas un comando diferente para compilar
+        run: npm run make
+
+      - name: List files in the output directory
+        run: ls -R out/make
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: Electron-macOS-App
-          path: out/make/*.dmg # Ajusta la ruta al formato de salida de tu app
+          path: out/make/*.dmg
