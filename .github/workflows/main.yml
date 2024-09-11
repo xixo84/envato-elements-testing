@@ -9,25 +9,26 @@ on:
         default: 'latest'
 
 jobs:
-  build:
-    runs-on: windows-latest # Cambia a 'windows-latest' o 'ubuntu-latest' según la plataforma
+  build-windows:
+    runs-on: windows-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Ajusta la versión de Node.js según tu proyecto
+          node-version: 18 # Usa la versión de Node.js que necesitas
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build with Electron Forge
-        run: npm run make # Asegúrate que este script esté configurado en tu package.json
+      - name: Build Electron app
+        run: npm run make # Cambia 'make' si usas un comando diferente para compilar
 
-      - name: Upload Artifacts
+      - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: electron-forge-build
-          path: out/make # Ajusta según la carpeta de salida de Electron Forge
+          name: Electron-Windows-App
+          path: out/make/squirrel.windows/x64/*.exe # Cambia esta ruta al output de tu app
