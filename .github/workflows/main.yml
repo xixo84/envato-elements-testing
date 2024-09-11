@@ -1,9 +1,12 @@
 name: xixo-prueba
 
 on:
-  push:
-    branches:
-      - main
+  workflow_dispatch: # Permite ejecutar manualmente el workflow
+    inputs: # Opcional: define inputs si necesitas parámetros para el workflow
+      build_version:
+        description: 'Build version'
+        required: false
+        default: 'latest'
 
 jobs:
   build:
