@@ -12,6 +12,9 @@ jobs:
   build-mac:
     runs-on: macos-latest # Ejecuta en el entorno más reciente de macOS
 
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true # Agrega la variable de entorno
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3 # Asegúrate de usar la última versión estable
@@ -19,7 +22,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20 # Actualiza a la versión de Node.js 20
+          node-version: 20 # Usa la versión de Node.js 20
 
       - name: Install dependencies
         run: npm install
