@@ -37,4 +37,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Electron-macOS-App
-          path: out/make/*.dmg
+          path: out/make/*.zip
