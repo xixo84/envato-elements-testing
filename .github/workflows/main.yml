@@ -10,12 +10,10 @@ on:
 
 jobs:
   build-mac:
-    runs-on: macos-latest
-
+    runs-on: macos-lates
+    
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true
-      ACTIONS_RUNNER_DEBUG: true
-      ACTIONS_STEP_DEBUG: true
 
     steps:
       - name: Checkout repository
@@ -31,15 +29,6 @@ jobs:
 
       - name: Build Electron app for macOS
         run: npm run make
-      - name: Save build logs
-        if: failure() # Solo guarda los logs si hay un fallo
-        run: |
-          mkdir -p logs
-          mv npm-debug.log logs/npm-debug.log
-        continue-on-error: true
-
-      - name: List files in the output directory
-        run: ls -R out/make
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
