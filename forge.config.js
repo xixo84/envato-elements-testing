@@ -5,7 +5,7 @@ module.exports = {
   packagerConfig: {
     asar: true,
     platform: 'darwin',
-    arch: 'x64', // o 'arm64' si estás en una Mac con Apple Silicon (M1 o M2)
+    arch: 'universal', // o 'arm64' si estás en una Mac con Apple Silicon (M1 o M2)
     osxSign: {}, // Opcional, para firmar la app si tienes un Apple Developer ID
     osxNotarize: {}, // Opcional, para notarizar la app para macOS Catalina o superior
   },
