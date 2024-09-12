@@ -16,7 +16,6 @@ module.exports = {
       config: {
         overwrite: true, // sobreescribir archivos existentes
         format: 'ULFO', // Formato de compresión, ULFO es uno de los más rápidos
-        icon: 'path/to/your/icon.icns', // opcional, define un ícono para el DMG
         title: 'xixo-app-mac', // título que aparecerá en el DMG
         contents: [
           { x: 130, y: 220, type: 'file', path: '.out/make/xixo-app-mac.app' },
