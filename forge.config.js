@@ -6,8 +6,6 @@ module.exports = {
     asar: true,
     platform: 'darwin',
     arch: 'universal', // o 'arm64' si estás en una Mac con Apple Silicon (M1 o M2)
-    osxSign: {}, // Opcional, para firmar la app si tienes un Apple Developer ID
-    osxNotarize: {}, // Opcional, para notarizar la app para macOS Catalina o superior
   },
   rebuildConfig: {},
   makers: [
