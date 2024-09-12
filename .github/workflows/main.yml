@@ -31,6 +31,12 @@ jobs:
 
       - name: Build Electron app for macOS
         run: npm run make
+      - name: Save build logs
+        if: failure() # Solo guarda los logs si hay un fallo
+        run: |
+          mkdir -p logs
+          mv npm-debug.log logs/npm-debug.log
+        continue-on-error: true
 
       - name: List files in the output directory
         run: ls -R out/make
