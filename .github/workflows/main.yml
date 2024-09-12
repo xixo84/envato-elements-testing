@@ -10,8 +10,8 @@ on:
 
 jobs:
   build-mac:
-    runs-on: macos-lates
-    
+    runs-on: macos-latest
+
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true
 
@@ -30,8 +30,11 @@ jobs:
       - name: Build Electron app for macOS
         run: npm run make
 
+      - name: List files in the output directory
+        run: ls -R out/make
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: Electron-macOS-App
-          path: out/make/*.dmg
+          path: out/make/*.zip
