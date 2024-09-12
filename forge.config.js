@@ -5,7 +5,7 @@ module.exports = {
   packagerConfig: {
     asar: true,
     platform: 'darwin',
-    arch: 'universal', // o 'arm64' si estás en una Mac con Apple Silicon (M1 o M2)
+    arch: 'x64', // o 'arm64' si estás en una Mac con Apple Silicon (M1 o M2)
   },
   rebuildConfig: {},
   makers: [
