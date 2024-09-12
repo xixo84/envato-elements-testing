@@ -12,18 +12,6 @@ module.exports = {
       config: {},
     },
     {
-      name: '@electron-forge/maker-dmg',
-      config: {
-        overwrite: true, // sobreescribir archivos existentes
-        format: 'ULFO', // Formato de compresión, ULFO es uno de los más rápidos
-        title: 'xixo-app-mac', // título que aparecerá en el DMG
-        contents: [
-          { x: 130, y: 220, type: 'file', path: '.out/make/xixo-app-mac.app' },
-          { x: 410, y: 220, type: 'link', path: '/Applications' }
-        ]
-      }
-    },
-    {
       name: '@electron-forge/maker-zip',
       platforms: ['darwin'],
     },
